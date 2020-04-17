@@ -1,9 +1,10 @@
 ---
 title: markdown语法
+categories:
+  - mardown
+abbrlink: 47193
 date: 2020-04-17 15:30:54
 tags:
-categories: 
-  - mardown
 ---
 
 Markdown标签必须是在英文状态下才会生效,而且标签后需要跟一个空格
