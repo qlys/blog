@@ -21,3 +21,13 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
+
+# 代码块设置
+# normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+# style: default | flat | mac
+codeblock:
+  highlight_theme: night eighties
+  copy_button:
+    enable: true
+    show_result: true
+    style:
