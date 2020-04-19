@@ -239,6 +239,63 @@
       </tags>
   </entry>
   <entry>
+    <title>js思维导图</title>
+    <url>/blog/2020/04/19/js-mapping/</url>
+    <content><![CDATA[<p>javaScript的思维导图</p>
+<a id="more"></a>
+<img src="/blog/2020/04/19/js-mapping/js-basic-concepts.jpg" class="" title="js基本概念">
+<img src="/blog/2020/04/19/js-mapping/js-basic-concepts.jpg" class="" title="js操作符">
+<img src="/blog/2020/04/19/js-mapping/js-basic-statement.jpg" class="" title="js基本语句">
+<img src="/blog/2020/04/19/js-mapping/js-array.jpg" class="" title="js数组用法">
+<img src="/blog/2020/04/19/js-mapping/js-date.jpg" class="" title="js日期用法">
+<img src="/blog/2020/04/19/js-mapping/js-string.jpg" class="" title="js字符串用法">
+<img src="/blog/2020/04/19/js-mapping/js-programming-style.jpg" class="" title="js编程风格">
+<img src="/blog/2020/04/19/js-mapping/js-programming-practice.jpg" class="" title="js编程实践">
+]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>js基本概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js模块引入方式</title>
+    <url>/blog/2020/04/18/js-module-introduction/</url>
+    <content><![CDATA[<h2 id="ES-Module模块引入方式"><a href="#ES-Module模块引入方式" class="headerlink" title="ES Module模块引入方式"></a>ES Module模块引入方式</h2><p>ES Module模块引入在浏览器端模块需要提前打包处理编译(浏览器不支持ES Module模块引入),但是,也是最流行的模块引入方式.</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|-module</span><br><span class="line">  |---a.js</span><br><span class="line">  |---b.js</span><br><span class="line">|-main.js</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line"><span class="comment">/******* a.js文件 *******/</span> </span><br><span class="line"><span class="comment">// 分别曝露的方式</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">a1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'a.js'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> a2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/******* b.js文件 *******/</span> </span><br><span class="line"><span class="comment">// 统一曝露的方式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'b.js function b1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'b.js function b2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;b1,b2&#125;; <span class="comment">//导出函数b</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/******* main.js文件 *******/</span> </span><br><span class="line"><span class="keyword">import</span> &#123;a1,a2&#125; <span class="keyword">from</span> <span class="string">'./module/a.js'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;b1,b2&#125; <span class="keyword">from</span> <span class="string">'./module/b.js'</span>;</span><br><span class="line">a1();</span><br><span class="line">a2();</span><br><span class="line">b1();</span><br><span class="line">b2();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//方式二</span></span><br><span class="line"><span class="comment">/******* a.js文件 *******/</span> </span><br><span class="line"><span class="comment">// 默认曝露的方式</span></span><br><span class="line"><span class="comment">// 多个数据(类似分别曝露)</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">  strings:<span class="string">'数字曝露'</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a1</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'a.js'</span>);&#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a2</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(strings);&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/******* main.js文件 *******/</span> </span><br><span class="line"><span class="keyword">import</span> a <span class="keyword">from</span> <span class="string">'./a.js'</span>;</span><br><span class="line">a.a1();</span><br><span class="line">a.a2();</span><br></pre></td></tr></table></figure>
+
+<h2 id="CommonJS模块引入"><a href="#CommonJS模块引入" class="headerlink" title="CommonJS模块引入"></a>CommonJS模块引入</h2><p>CommonJS在服务器端的加载是同步的, 在浏览器端模块需要提前打包处理编译(浏览器不支持CommonJS规范),浏览器加载时可能微慢</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">目录</span><br><span class="line">|-module</span><br><span class="line">  |---a.js</span><br><span class="line">  |---b.js</span><br><span class="line">|-main.js</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式一</span></span><br><span class="line"><span class="comment">/******* a.js *******/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数内容</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = a;<span class="comment">//导出模块a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/******* b.js *******/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数内容</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = a;<span class="comment">//导出模块a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/******* main.js *******/</span></span><br><span class="line"><span class="comment">//require以同步的方式获取模块</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="comment">//函数执行</span></span><br><span class="line">a();</span><br><span class="line">b();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二(推荐)</span></span><br><span class="line"><span class="comment">/******* a.js *******/</span> </span><br><span class="line"><span class="comment">//导出模块a</span></span><br><span class="line"><span class="comment">// 为a模块添加c属性</span></span><br><span class="line">exports.c = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为a模块添加d属性</span></span><br><span class="line">exports.d = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/******* b.js *******/</span> </span><br><span class="line"><span class="comment">//导出模块b</span></span><br><span class="line"><span class="comment">// 为a模块添加e属性</span></span><br><span class="line">exports.e = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为a模块添加f属性</span></span><br><span class="line">exports.f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">//函数内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/******* main.js *******/</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="comment">//函数执行</span></span><br><span class="line">a.c();</span><br><span class="line">a.d();</span><br><span class="line">b.e();</span><br><span class="line">b.f();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><p>专门用于浏览器端,模块的加载方式是异步.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">目录</span><br><span class="line">|-js</span><br><span class="line">  |-libs</span><br><span class="line">    |---require.js</span><br><span class="line">    |---jquery.js</span><br><span class="line">    |---angular.js</span><br><span class="line">  |-module</span><br><span class="line">    |---amodule.js</span><br><span class="line">    |---bmodule.js</span><br><span class="line">  |-main.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/******* amodule.js *******/</span> </span><br><span class="line"><span class="comment">// 没有依赖的模块</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> txt = <span class="string">'amodule.js'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">afunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> txt;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 曝露amodule模块对象,通常曝露的是个对象,这样可以包含多个</span></span><br><span class="line">  <span class="keyword">return</span> &#123;afunction&#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/******* bmodule.js *******/</span> </span><br><span class="line"><span class="comment">// 有依赖的模块,依赖于a.js模块</span></span><br><span class="line"><span class="comment">// 依赖的模块必须与function行参一一对应</span></span><br><span class="line">define([<span class="string">'amodule'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">amodule</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> txts = <span class="string">'bmodule.js'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bfunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    consloe.log(txts,a.afunction());</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;bfunction&#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/******* main.js *******/</span> </span><br><span class="line"><span class="comment">// 依赖的模块必须与function行参一一对应</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// requirejs配置</span></span><br><span class="line">  requirejs.config(&#123;</span><br><span class="line">    baseURL:<span class="string">'js/'</span>;<span class="comment">//基本路径</span></span><br><span class="line">    <span class="comment">// 路径</span></span><br><span class="line">    <span class="comment">// 引入路径不需要添加文件后缀</span></span><br><span class="line">    path:&#123;</span><br><span class="line">      amodule:<span class="string">'./module/amodule'</span>,</span><br><span class="line">      bmodule:<span class="string">'./module/bmodule'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 有依赖的模块,依赖于b.js模块</span></span><br><span class="line">  <span class="built_in">require</span>([<span class="string">'bmodule'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">bmodule</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 运行b模块的bmodule函数</span></span><br><span class="line">    b.bfunction();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// index.html js文档引入</span></span><br><span class="line"><span class="comment">// js标签是先引入require.js文件,后引入自己编写的main.js文件</span></span><br><span class="line">&lt;script data-main=<span class="string">"js/main.js"</span> src=<span class="string">"js/libs/require.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>AMD模块加载是异步的,jQuery支持AMD,但是jQuery引用时这步<code>define([&#39;module&#39;,&#39;jQuery&#39;],function(module,$){})</code>必须改成小写的<code>jquery</code>才行,就是这样<code>define([&#39;module&#39;,&#39;jquery&#39;],function(module,$){})</code>才不会报错;还有<code>angular,js</code>需要单独配置,正确配置如下:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// requirejs配置</span></span><br><span class="line">  requirejs.config(&#123;</span><br><span class="line">    baseURL:<span class="string">'js/'</span>;<span class="comment">//基本路径</span></span><br><span class="line">    <span class="comment">// 路径</span></span><br><span class="line">    <span class="comment">// 引入路径不需要添加文件后缀</span></span><br><span class="line">    path:&#123;</span><br><span class="line">      amodule:<span class="string">'./module/amodule'</span>,</span><br><span class="line">      bmodule:<span class="string">'./module/bmodule'</span>,</span><br><span class="line">      jquery:<span class="string">'./libs/jquery'</span>,</span><br><span class="line">      angular:<span class="string">'./libs/angular'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// shim就是一个单独配置</span></span><br><span class="line">    shim:&#123;</span><br><span class="line">      angular:&#123;</span><br><span class="line">        <span class="keyword">export</span>:<span class="string">'angular'</span> <span class="comment">//曝露libs/angular对象</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>不推荐学习,CMD不流行只做了解就行,CMD模块引入是阿里巴巴内部使用的</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>module-introduction</tag>
+        <tag>ES Module模块引入方式</tag>
+        <tag>CommonJS模块引入</tag>
+        <tag>AMD</tag>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSH Connection closed</title>
     <url>/blog/2020/04/17/mac-ssh-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%85%B3%E9%97%AD/</url>
     <content><![CDATA[<p>Mac终端连接远程服务器时，报 <code>Connection closed by 207.***.8*.** port 22</code> 错误！原因是服务器账户的密码换了，链接时匹配本地的 ECDSA，未匹配正确，所以服务器拒绝建立连接</p>
@@ -332,16 +389,64 @@
       </categories>
   </entry>
   <entry>
-    <title>科学上网</title>
-    <url>/blog/2020/04/17/vpn/</url>
-    <content><![CDATA[<p>国内的国情确定了我们可浏览的网站，由于我们是开发者需要翻看很多国外技术网站，查看这些技术网站就需要到科学的技术。这里我们就介绍下 hosts、<a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">lantern</a>、<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="noopener">shadowsocks</a>、<a href="https://getoutline.org/en/home" target="_blank" rel="noopener">outline</a> 的搭建和使用</p>
+    <title>nodejs-install</title>
+    <url>/blog/2020/04/18/nodejs-install/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>简单的说 Node.js 就是运行在服务端的 JavaScript;Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台;Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</p>
+<p>如果不懂得像PHP、Python或Ruby等动态编程语言，而且会JavaScript,然后你想创建自己的服务，那么Node.js是一个非常好的选择。</p>
 <a id="more"></a>
 
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>nodejs中文网址:<a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a><br>nodejs英文网址:<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
+<div class="tabs" id="nodejsdownload"><ul class="nav-tabs"><li class="tab active"><a href="#nodejsdownload-1">window</a></li><li class="tab"><a href="#nodejsdownload-2">mac</a></li><li class="tab"><a href="#nodejsdownload-3">liunx</a></li></ul><div class="tab-content"><div class="tab-pane active" id="nodejsdownload-1"><p>window 32位系统下载:<a href="https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2-x86.msi" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2-x86.msi</a><br>window 64位系统下载:<a href="https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2-x64.msi" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2-x64.msi</a></p></div><div class="tab-pane" id="nodejsdownload-2"><p>mac 64位系统下载:<a href="https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2.pkg" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2.pkg</a></p></div><div class="tab-pane" id="nodejsdownload-3"><p>liunx 64位系统下载:<a href="https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2-linux-x64.tar.xz" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/v12.16.2/node-v12.16.2-linux-x64.tar.xz</a></p></div></div></div>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>安装成功之后在终端命令行输入<code>node -v</code>,成功之后会显示版本号,否则安装失败,再重新安装</p>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npx es10-cli create projectName</span><br></pre></td></tr></table></figure>
+<p>es10-cli创建项目的脚手架,create创建项目的命令,projectName项目名称</p>
+<h2 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd projectName</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>nodejs</category>
+      </categories>
+      <tags>
+        <tag>nodejs</tag>
+        <tag>nodejs安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建 VPN 服务</title>
+    <url>/blog/2020/04/17/vpn/</url>
+    <content><![CDATA[<p>国内的国情确定了我们可浏览的网站，由于我们是开发者需要翻看很多国外技术网站，查看这些技术网站就需要到科学的技术。这里我们就介绍下 hosts、ssh、<a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">lantern</a>、<a href="https://shadowsocks.org/en/index.html" target="_blank" rel="noopener">shadowsocks</a>、<a href="https://getoutline.org/en/home" target="_blank" rel="noopener">outline</a> 的搭建和使用</p>
 <h2 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h2><p>hosts（the static table lookup for host name 主机名查询静态表）用于补充或取代网络中DNS的功能。它储存的是计算机网络中各节点信息，负责将主机名映射到相应的IP地址，合理利用可提高域名的解析速度。<strong>在以前通过该技术可以实现FQ目的，现在已不再适用，因为自2018年8月24号起，长城开始启用基于SNI检测和TCP连接重置等手段进行了封锁</strong></p>
+<a id="more"></a>
+
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>使用ssh端口映射也可达到FQ的目的。ssh端口映射、shadowsocks和outline这三种方式，都需要你有台境外服务器！这里推荐两个服务器提供商 <a href="https://www.vultr.com/" target="_blank" rel="noopener">vultr</a> 和 <a href="https://bandwagonhost.com/" target="_blank" rel="noopener">搬瓦工</a>，它们都支持微信和支付宝付款，两者的区别在于：</p>
+<ul>
+<li><a href="https://bandwagonhost.com/" target="_blank" rel="noopener">搬瓦工</a>：按月或者年进行扣费；换IP需要缴纳多余的费用</li>
+<li><a href="https://www.vultr.com/" target="_blank" rel="noopener">vultr</a>：按小时进行扣费；换IP选择个地区重建个服务器镜像即可</li>
+</ul>
+<p>我自己就是使用的vultr，并且官网的UI设计的比较不错！我搭建的VPS服务器镜像地区是日本，系统是Ubuntu 19.10 x 64<span class="text-gray">（搭建镜像时尽量选择离你比较近的地区，同时记得要开启IP6协议哦）</span>。如何搭建VPS服务请参考<a href="https://www.stackcc.com/2019/07/25/vultrdas/" target="_blank" rel="noopener">https://www.stackcc.com/2019/07/25/vultrdas/</a> 和 <a href="https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B</a> 太简单这里不赘述</p>
+<p>VPS服务搭建好后，输入如下指令回车，并输入VPS服务器的密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -D127.0.0.1:9000 root@remote_host</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-D 动态转发，远程主机通过SOCKS协议连接到你要访问的网站，有加密作用</li>
+<li>127.0.0.1:9000 是本地的IP和端口<span class="text-gray">（端口随便定义，一般选用 1024-65535 之间的并且尚未使用的端口号）</span></li>
+<li>root 远程主机用户名<span class="text-gray">（一般默认的都是这个，即我们刚搭建的VPS服务器镜像）</span></li>
+<li>remote_host 远程主机的IP地址</li>
+</ul>
+<p>连接成功后，我们打开 <strong>“系统偏好设置 - 网络 - 当前正在使用的网络<span class="text-gray">（例如：WIFI）</span>- 高级<span class="text-gray">（右下角）</span>- 代理 - SOCKS代理 - SOCKS代理服务器处填写上127.0.0.1:9000<span class="text-gray">（端口写你自己定义的）</span> - 好 - 应用”</strong></p>
+<p>此时你再查看下自己的<a href="https://www.ip.cn/" target="_blank" rel="noopener">IP地址</a>是不是变成VPS服务的了！访问一些被墙的网站也访问通了！终端内退出服务器的话，ssh连接就会断开</p>
+<div class="note ">
+            <p>想了解更多ssh转发知识请参考：<br><a href="https://www.ssh.com/ssh/" target="_blank" rel="noopener">https://www.ssh.com/ssh/</a><br><a href="https://man.linuxde.net/ssh" target="_blank" rel="noopener">https://man.linuxde.net/ssh</a><br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html</a><br><a href="https://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html</a></p>
+          </div>
+
 <h2 id="lantern"><a href="#lantern" class="headerlink" title="lantern"></a>lantern</h2><p><a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">lantern（蓝灯）</a>免费的全平台兼容的FQ软件，每月500M，每月月初自动重置</p>
-<h2 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a>shadowsocks</h2><p>Shadowsocks是一种基于socks5协议的代理工具。搭建该服务需要先买台境外的服务器，我这里使用的是<a href="https://www.vultr.com/" target="_blank" rel="noopener">vultr</a><span class="text-gray">（搬瓦工也是可以。搬瓦工是按月或者年扣费，不过经常会推出活动；而vultr是按小时进行扣费。两者都支持微信和支付宝付款）</span>的，搭建的镜像系统是 Ubuntu 19.10 x 64<span class="text-gray">（搭建镜像时尽量选择离你比较近的位置，同时记得要开启IP6协议哦）</span>，地点选择的是日本</p>
-<p>线上镜像服务搭建好后，在本地使用终端通过SSH命令，登陆到Vultr的云主机服务器上</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh root@Vultr-OS-IP</span><br></pre></td></tr></table></figure>
+<h2 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a>shadowsocks</h2><p>Shadowsocks是一种基于socks5协议的代理工具。客户端下载列表如下：</p>
+<ul>
+<li><a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases" target="_blank" rel="noopener">Mac</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">window</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">Android</a></li>
+<li>iPhone <span class="text-gray">（版本的客户端是 Shadowrocket 需要国外的 Apple ID 才可下载，并且该软件是收费的）</span></li>
+</ul>
+<p>VPS服务搭建这里直接跳过，不懂的请<a href="#ssh">参考ssh端口映射</a>的那一步。通过本地的终端ssh连接到远程服务器上</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh root@remote_host</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装组件"><a href="#安装组件" class="headerlink" title="安装组件"></a>安装组件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
 
@@ -350,7 +455,7 @@
 <h3 id="创建Shadowsocks服务配置文件"><a href="#创建Shadowsocks服务配置文件" class="headerlink" title="创建Shadowsocks服务配置文件"></a>创建Shadowsocks服务配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 路径和名称可随意定义</span></span><br><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
 
 <p>在shadowsocks.json文件内添加如下内容<span class="text-gray">（回车后英文状态下按 <code>i</code> 键进入编辑模式，编辑后按 <code>esc</code> 退出编辑模式， 输入 <code>:wq</code> 保存退出vim）</span></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;server&quot;:&quot;VPS IP&quot;,</span><br><span class="line">  &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">  &quot;local_port&quot;:1080,</span><br><span class="line">  &quot;port_password&quot;:&#123;</span><br><span class="line">    &quot;9**0&quot;:&quot;ss**&quot;,</span><br><span class="line">    &quot;9**1&quot;:&quot;ss*1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;timeout&quot;:300,</span><br><span class="line">  &quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">  &quot;fast_open&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;server&quot;:&quot;remote_host&quot;,</span><br><span class="line">  &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">  &quot;local_port&quot;:1080,</span><br><span class="line">  &quot;port_password&quot;:&#123;</span><br><span class="line">    &quot;9**0&quot;:&quot;ss**&quot;,</span><br><span class="line">    &quot;9**1&quot;:&quot;ss*1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;timeout&quot;:300,</span><br><span class="line">  &quot;method&quot;:&quot;aes-256-cfb&quot;,</span><br><span class="line">  &quot;fast_open&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>server：换成你服务器的IP<br>port_password：多用户使用时开放的端口及其密码<br>method：加密协议<br>fast_open：是否开启加速器</p>
 <h3 id="开启Shadowsocks服务"><a href="#开启Shadowsocks服务" class="headerlink" title="开启Shadowsocks服务"></a>开启Shadowsocks服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止命令</span></span><br><span class="line"><span class="comment"># ssserver -c /etc/shadowsocks.json -d stop</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调试时使用以下命令可实时预览请求信息</span></span><br><span class="line"><span class="comment"># ssserver -c /etc/shadowsocks.json</span></span><br></pre></td></tr></table></figure>
@@ -359,14 +464,8 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果终端里的 openssl.py 路径跟这里不一致</span></span><br><span class="line"><span class="comment"># 请改成终端错误信息内的路径</span></span><br><span class="line">vim /usr/<span class="built_in">local</span>/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入文件后，直接按 shift 输入如下指令</span></span><br><span class="line">:%s/cleanup/reset/</span><br><span class="line">:x</span><br></pre></td></tr></table></figure>
 
 <p>现在再使用 <code>ssserver -c /etc/shadowsocks.json -d start</code> 命令开启Shadowsocks服务即可完成！</p>
-<h3 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h3><p>现在服务器端已经配置完毕，要想FQ还需要配置下客户端。Shadowsocks客户端的设置及其使用非常简单。在客户端中“添加服务器”，正确填写服务器的地址、端口、密码和加密方式，然后就可以连接服务端了</p>
-<ul>
-<li><a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases" target="_blank" rel="noopener">Mac</a></li>
-<li><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">window</a></li>
-<li><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">Android</a></li>
-<li>iPhone <span class="text-gray">（版本的客户端是 Shadowrocket 需要国外的 Apple ID 才可下载，并且该软件是收费的）</span></li>
-</ul>
-<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><p>Outline 是 Jigsaw 团队开发的，而 Jigsaw 又是谷歌母公司 alphabet 旗下的，开源口号好像是为全球媒体工作者提供帮助什么的，具体的没记清楚。反正跟 shadowscoks 是同类型的工具，都是用来帮助我们科学上网的。软件核心部分依赖的还是 shadowscoks，只不过在此基础上重新包装开发而已。选择它的目地，主要是在国内各应用商城内 Outline App 依然可下载。使用 Outline 服务需要服务端和客户端两个软件配合使用，即</p>
+<h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><p>现在服务器端已经配置完毕，紧接着就是配置客户端。Shadowsocks客户端的设置及其使用非常简单。在客户端中“添加服务器”，正确填写服务器的地址、端口、密码和加密方式，然后就可以连接服务端了</p>
+<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><p>Outline 是 Jigsaw 团队开发的，而 Jigsaw 又是谷歌母公司 alphabet 旗下的，开源口号好像是为全球媒体工作者提供帮助什么的，具体的没记清楚。反正跟 shadowscoks 是同类型的工具，都是用来帮助我们科学上网的。软件核心部分依赖的还是 shadowscoks，只不过在此基础上重新包装开发而已。选择它的目地，主要是国内各应用商城内依然可下载 Outline App。使用 Outline 服务需要服务端和客户端两个软件配合使用，即</p>
 <ul>
 <li>服务端：Outline Manager</li>
 <li>客户端：Outline</li>
@@ -385,7 +484,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&quot;apiUrl&quot;:&quot;https:&#x2F;&#x2F;***.28.*1.**9:***69&#x2F;*********mfPAusF9w&quot;,</span><br><span class="line">&quot;certSha256&quot;:&quot;FFFA7***************5B61976F57B4B1E12BB9***19772F6&quot;&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="配置-outline"><a href="#配置-outline" class="headerlink" title="配置 outline"></a>配置 outline</h3><p>完成 Outline Manager 服务端的配置后，进入该服务的管理界面，在该界面内选择“添加新密钥”，然后把新创建的密钥共享给 outline App 使用。注意使用的主要是以 ss 开头的字符串哦！操作还有迷糊的地方，可点击该文章 <a href="https://oracleblog.org/its-my-life/how-to-deploy-outline-by-jigsaw/" target="_blank" rel="noopener">“Outline 的部署和使用”</a> 看图文进行操作</p>
-<h2 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h2><p>长城防火墙封锁比较严重时或者不想付费的使用lantern，不严重使用shadowsocks或者outline。shadowsocks配置稍复杂些，严查期间封锁shadowsocks也要比outline严重</p>
+<h2 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h2><p>长城防火墙封锁比较严重时或者不想付费的使用lantern。不严重使用shadowsocks或者outline。shadowsocks配置稍复杂些，严查期间封锁shadowsocks也要比outline严重。短时间使用那就选ssh端口映射。</p>
 <p>同时要提醒大家的是：</p>
 <p style="color: #f2777a;text-align: center;">科学上网别信谣、别传谣、别造谣、别看不该看的东西、让我们做个守法的好公民！</p >]]></content>
       <categories>
@@ -395,6 +494,23 @@
         <tag>vpn</tag>
         <tag>shadowsocks</tag>
         <tag>outline</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack-install</title>
+    <url>/blog/2020/04/18/webpack-install/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>webpack在使用之前需要本地电脑确保安装了nodejs和npm,webpack支持ES Module模块引入方式、CommonJS模块引入规范、CMD、ADM</p>
+<a id="more"></a>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir progect</span><br><span class="line">cd progect</span><br><span class="line">npm init</span><br><span class="line">//之后项目的配置就不多赘述了,一路回车就行了</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装webpack、webpack-cli</span></span><br><span class="line">npm i webpack webpack-cli -D</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查webpack、webpack-cli是否安装成功</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> npx *** -v 命令检查本地项目中是否安装成功</span></span><br><span class="line">npx webpack -v</span><br><span class="line">npx webpack-cli -v</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装成功之后会显示版号</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在新建项目中建立webpack的配置文件:webpack.config.js,配置如下:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack模块引入</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack基本配置</span></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    mode: <span class="string">'development'</span>, <span class="comment">//开发者模式</span></span><br><span class="line">    entry: <span class="string">'./index.js'</span>, <span class="comment">//入口文件设置</span></span><br><span class="line">    output: &#123; <span class="comment">//出口文件设置</span></span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'dist'</span>), <span class="comment">//配置导出文件路径</span></span><br><span class="line">        filename: <span class="string">'main.js'</span> <span class="comment">//配置导出文件名称</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 曝露webpack配置config对象</span></span><br><span class="line"><span class="built_in">module</span>.exports = config;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>webpack</category>
+      </categories>
+      <tags>
+        <tag>webpack-install</tag>
       </tags>
   </entry>
 </search>
